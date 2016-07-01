@@ -1,0 +1,24 @@
+ 
+ {%extends 'base.html' %}
+{% block content %}
+<div class="row subirh">
+	<h1>Subir Archivo</h1>    
+	<hr>
+    {% if form.errors %}
+        <script type="text/javascript">
+        alert('Solo subir archivos PDF');
+        </script>
+    {% endif %}
+ {%if form%}   
+	<form method="post" class="subir" action=""enctype="multipart/form-data" >{%csrf_token%}
+
+{{form.as_p}}	
+
+
+<button class="btn btn-primary" type="submit">subir</button>
+
+</form>
+{%endif%}
+<h1 style="color:green;">{{titulo}}</h1>
+</div>
+{% endblock %} 

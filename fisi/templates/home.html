@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+
+{% block content %}
+<div class="page-section" >
+                    <div class="row">
+                        <div class="col-md-12">
+                        
+                            <div class="content_left">
+
+                                <h1 class ="titulo">{{user.first_name}} {{user.last_name}}</h1>
+                                
+                                <img class="image-user" src="/static/{{user.alumno.media}}" />
+                                <p><button class="butt-code"><i class="fa fa-graduation-cap"></i> {{user.alumno.codigo}}</button></p>
+                                <div class="sub_left">
+                                    <ul>
+                                        <li><i class="fa fa-university"></i>Facultad : <span>Ingeniería de Sistemas</span></li>
+                                        <li><i class="fa fa-university"></i>E.A.P : <span>{{user.alumno.eap}}</span></li>
+                                        <li><i class="fa fa-graduation-cap"></i>Plan de estudios :<span> {{user.alumno.plan}}</span></li>
+                                    </ul>
+                                </div>
+                                
+
+                                
+                            </div>
+                            <div class ="content_right">
+                                <h4 class="widget-title" style="margin-top: 1em;">Información Personal <hr style="width: 80%; margin-top: 0%;"></h4>
+                                <div class=sub_left>
+                                    <ul>
+                                        <li><strong>Email:</strong><span>{{user.email}}</span></li>
+                                        <li><strong>Sexo: </strong><span>{{user.alumno.sexo}}</span></li>
+                                        <li><strong>Telefono: </strong><span>{{user.alumno.telefono}}</span></li>
+                                        <li><strong>Dirección: </strong><span>{{user.alumno.direccion}}</span></li>
+                                        <li><strong>Domicilio: </strong><span>{{user.alumno.distrito.provincia.departamento}}/{{user.alumno.distrito.provincia}}/{{user.alumno.distrito}}</span></li>
+                                    </ul>
+                                    <br><br>
+                                    <p><strong>Para cambiar tu contraseña click</strong></p>
+                                    <button class="butt-code" href="editar.html" onclick="window.location.href='/editar/'">AQUI</button>  
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- #about -->
+</div>
+{% endblock %}
+        
+        

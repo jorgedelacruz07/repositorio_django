@@ -1,0 +1,21 @@
+{%extends 'base.html' %}
+{% block content %}
+    <h2 class="page-header">Editar contraseña</h2>
+    <h2>{{titulo}}</h2>
+
+ {%if form%}   
+<form method="post" action=".">
+{% csrf_token %}
+{{ form.as_p }}
+<button class="btn btn-primary" type="submit">Actualizar contraseña</button>
+<button class="btn btn-primary" type="button" onclick="window.location.href='/home/' ">Cancelar</button>
+</form>
+
+
+
+{%endif%}
+<p>Pregunta... (<a href="#" id="alternar-respuesta-ej1">ver respuesta</a>)
+ <div id="respuesta-ej1" style="display:none">Respuesta...hjggjgjgjkjgkgjbkkjkjbkjbj <br>hjsghhhj </div>
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/base.css'%}"/>
+    <link rel="stylesheet" type="text/css" href=" {% static 'css/home.css'%}"/>
+
+</head> 
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Login</h1>
+            {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    <form class="form" method="post" action="." >{% csrf_token %}
+        <input type="text" placeholder="Username" name="username">
+        <input type="password" placeholder="Password" name="password">
+        <button type="submit"  value="Login" id="login-button">Login</button>
+        <input type="hidden" name="next" value="/home" />
+    </form>
+        </div>
+    </div>
+    
+                        
+
+</body>
+</html>

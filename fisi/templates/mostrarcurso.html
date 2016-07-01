@@ -1,0 +1,28 @@
+<select class="buscarA" style="margin-top: 0em;">
+<option>Elige Curso</option>
+{%for curso in cursos%}
+	<option value="{{curso.id}}">{{curso.curso}}</option>
+{%endfor%}
+
+<div class="archivoxcurso"></div>
+</select>
+
+
+<script >
+	$('select').on("change",getArchivosa);
+function getArchivosa(){
+    var id=$(this).val();
+    console.log(id)
+    if(id){
+        var request = $.ajax({
+           data: {'id':id},
+            url: /archivoxcurso/,
+            type:"get",
+        });
+        request.done(function(response) {
+            $("#contenido").html(response.archivos);
+        });
+
+    }
+}
+</script>
