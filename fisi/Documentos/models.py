@@ -9,7 +9,7 @@ class Profesor(models.Model):
 	email=models.EmailField(max_length=50, blank=False,null=False)
 	curso=models.ForeignKey('curso',null=True)
 	area=models.ForeignKey('Area', null=True)
-
+	Comentario=models.ForeignKey('Comentario',null=True)
 	def __str__(self):
 		return self.nombre
 class Area(models.Model):
@@ -43,10 +43,14 @@ class tipo_doc(models.Model):
 		return self.tipo
 
 
-
+class votante(models.Model):
+	usuario=models.CharField(max_length=50, blank=False,null=False)
+	archivo=models.CharField(max_length=50, blank=False,null=False)
+	def __str__(self):
+		return self.archivo
 class Comentario(models.Model):
-	comentario=models.TextField(max_length=500)
-	archivo=models.ForeignKey('Archivo', null= True)
+	comentario=models.TextField(max_length=500,null=False, blank=False)
+	Profesor=models.ForeignKey('Profesor',null=True)
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
 	updated = models.DateTimeField(auto_now=True, auto_now_add=False,null=True)
 	timestamp = models.DateTimeField(auto_now=False, auto_now_add=True, null=True)

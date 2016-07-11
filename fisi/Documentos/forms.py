@@ -10,4 +10,4 @@ class DocumentoA(forms.ModelForm):
 class ComentarioC(forms.ModelForm):
 	class Meta:
 		model=Comentario
-		fields=["comentario"]
+		fields=["Profesor","comentario"]

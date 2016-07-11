@@ -1,0 +1,15 @@
+{%extends 'base.html' %}
+
+{% block content %}
+
+<div class="profesor">
+
+<h1><strong>{{profesor.nombre}} {{profesor.apellido}}</strong></h1>
+<h4><strong>Email: </strong><span>{{profesor.email}}</span></h4>
+<h4><strong>Area : </strong><span>{{profesor.area}}</span></h4>	
+<h4><strong>Curso: </strong><span>{{profesor.curso}}</span></h4>
+<button class="coment" value="{{profesor.id}}">ver comentarios</button>	
+</div>
+
+<div id ="comentarios" style="margin-top: 3em;"> cccc</div>
+{%endblock%}

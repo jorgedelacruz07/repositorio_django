@@ -18,6 +18,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from inicio.views import *
 from Documentos.views import *
+from Documentos.ajax import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -36,10 +37,13 @@ urlpatterns = [
     url(r'^logout/$', logout_page),
     url(r'^mostrararea/$', mostrararea ),
     url(r'^mostrarcurso/$', mostrarcurso ),
-     url(r'^mostrarprofesor/$', mostrarprofesor ),
+    url(r'^mostrarprofesor/$', mostrarprofesor ),
     url(r'^archivoxarea/$', archivoxarea),
     url(r'^archivoxcurso/$', archivoxcurso),
+    url(r'^comentario/$', comentario),
+    url(r'^profesores/$', mostrarprofesores),
+    url(r'^perfilprofesor/$', verprofesor),
     url(r'^archivoxprofesor/$', archivoxprofesor),
-    
+    url(r'^vercomentarios/$', vercomentarios),
     
 ]

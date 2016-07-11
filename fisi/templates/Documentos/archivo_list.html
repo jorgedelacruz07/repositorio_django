@@ -1,0 +1,19 @@
+{%extends 'base.html' %}
+
+
+{% block content %}
+
+<section style ="margin-top: 6em;"> 
+      <div id="capa_modal" class="div_modal" >
+        <div id="capa_para_edicion" class="div_contenido" > 
+          <div class="margin"  id="botones_control" style="margin-bottom: 1em;">
+            <button type="button" class="btn btn-primary" onclick="mostrarseccion(1);" >Areas</button>
+            <button type="button" class="btn btn-primary" onclick="mostrarseccion(2);" >Curso</button>
+            <button type="button" class="btn btn-primary" onclick="mostrarseccion(3);" >Profesor</button>               
+          </div>
+          <div  id="contenido" > Seleccione el tipo de busqueda </div>
+        </div>
+      </div>
+</section>
+
+{%endblock%}

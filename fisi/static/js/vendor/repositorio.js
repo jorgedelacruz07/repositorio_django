@@ -10,12 +10,15 @@ function mostrarseccion(arg){
     })
 }
 
+function comentario(arg){
 
+    if(arg==1){ var url=/comentario/;}
+    $.get(url,function(resul){
+        $("#contenido").html(resul);
+    })
+}
 
-
-
-
- $('.Datosp').on("click", getDatosp);
+$('.Datosp').on("click", getDatosp);
 function getDatosp() {
     var profesor_id = $(this).val();
     console.log(profesor_id)
@@ -25,12 +28,45 @@ function getDatosp() {
             url: /getdatos/,
             type:"get",
         });
-    request.done(function(response) {
+        request.done(function(response) {
             $("#datos").html(response.profesores);
         });
     }
-}
+} 
 
+
+$('.ll').on("click", descargar);
+function descargar() {
+    var id_archivo = $(this).val();
+    console.log(id_archivo)
+    if(id_archivo){
+        var request = $.ajax({
+            data: {'id_archivo':id_archivo},
+            url: /descargar/,
+            type: "get",
+        });
+        request.done(function(response){
+            $("")
+        });
+    }
+} 
+
+
+$('.coment').on("click", vercomentario);
+function vercomentario() {
+    var profesor_id = $('.coment').val();
+    console.log(profesor_id)
+    if(profesor_id){
+        var request = $.ajax({
+           data: {'profesor_id':profesor_id},
+            url: /vercomentarios/,
+            type:"get",
+        });
+    request.done(function(response) {
+            $("#comentarios").html(response.comentarios);
+        });
+    }
+} 
 
 
 $('.votos').on("click", getVotos);
@@ -94,7 +130,7 @@ function getCursos() {
             // Agregamos los resultados al select
                     
             $("#id_curso").html(response.cursos);
-            $("#id_profesor").html("<option value='' selected='selected'>---------</option>");
+            $("#id_profesor").html("");
             $("#id_curso, #id_profesor").trigger("change",getProfesores);
         });
     } else {

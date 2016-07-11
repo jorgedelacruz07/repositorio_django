@@ -1,0 +1,28 @@
+<select class="buscarA" style="margin-top: 0em;">
+<option>Elige Area</option>
+{%for area in areas%}
+	<option value="{{area.id}}">{{area.area}}</option>
+{%endfor%}
+
+</select>
+
+
+
+<script >
+	$('select').on("change",getArchivosa);
+function getArchivosa(){
+    var id=$(this).val();
+    console.log(id)
+    if(id){
+        var request = $.ajax({
+           data: {'id':id},
+            url: /archivoxarea/,
+            type:"get",
+        });
+        request.done(function(response) {
+            $("#contenido").html(response.archivos);
+        });
+
+    }
+}
+</script>
